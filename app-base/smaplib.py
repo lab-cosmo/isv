@@ -97,7 +97,9 @@ class smap:
         data=self.pd.iloc[idload].copy()
         if palette=='cosmo':COLORS=cosmo()
         else: COLORS=locals()[palette]
-        if marker[0]=='variable':marker=['circle','diamond','triangle','square','asterisk','cross','inverted_triangle']
+        
+        marklist = ['circle','diamond','triangle','square','asterisk','cross','inverted_triangle']
+        if not marker[0] in marklist: marker = marklist
        # TOOLS="resize,crosshair,pan,wheel_zoom,reset,tap,save,box_select,box_zoom,lasso_select"
         TOOLS="pan,reset,tap,save,box_zoom,lasso_select"
         wheel_zoom=WheelZoomTool(dimensions='both')
@@ -188,8 +190,8 @@ class smap:
                     i+=1
                 plot.legend.location = "top_left"
                 plot.legend.orientation = "vertical"
-                plot.legend.click_policy="hide"
-	    else:
+                plot.legend.click_policy = "hide"
+            else: 
                 if Periodic_color: # if periodic property then generate periodic color palatte
                      blendcolor=interpolate(COLORS[-1],COLORS[0],len(COLORS)/5)
                      COLORS=COLORS+blendcolor
@@ -207,7 +209,7 @@ class smap:
                 colorbar.border_line_alpha = 0
                 if add_colorbar:
                    plot.add_layout(colorbar, 'left')
-# Overview plot           
+        # Overview plot           
         oplot=figure(title='',plot_width=200, plot_height=200,toolbar_location=None)
         oplot.circle(x,y,source=datasrc,size=4, fill_alpha=0.6, line_color=None,name="mycircle")
         orenderer = oplot.select(name="mycircle")

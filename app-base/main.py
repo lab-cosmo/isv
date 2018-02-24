@@ -44,26 +44,26 @@ def bkapp(dfile,pcol,app_name,server_static_root,title='Sketch-map',pointsize=10
     n=len(cv.data)
     columns=[i for i in cv.columns]
 
-# set up selection options
+    # set up selection options
     tcol=pcol[0]-1
-    xcol = Select(title='X-Axis', value=columns[tcol], options=columns,width=50)
+    xcol = Select(title='X-Axis', value=columns[tcol], options=columns, width=50)
     xcol.on_change('value', update)
     tcol=pcol[1]-1
     ycol = Select(title='Y-Axis', value=columns[tcol], options=columns, width=50)
     ycol.on_change('value', update)
     roptions=['None']
     for option in columns: roptions.append(option)
-    rcol = Select(title='Size', value='None', options=roptions,width=50)
+    rcol = Select(title='Size', value='None', options=roptions, width=50)
     rcol.on_change('value', update)
     if (len(pcol)>2 ):
       tcol=pcol[2]-1
-      ccol = Select(title='Color', value=columns[tcol], options=roptions,width=50)
+      ccol = Select(title='Color', value=columns[tcol], options=roptions, width=50)
     else:    
-      ccol = Select(title='Color', value='None', options=roptions,width=50)
+      ccol = Select(title='Color', value='None', options=roptions, width=50)
     ccol.on_change('value', update)
 
-    marker_options=['circle','diamond','triangle','square','asterisk','cross','inverted_triangle','variable']
-    marker = Select(title='Marker', value='circle', options=marker_options,width=50)
+    marker_options=['circle','diamond','triangle','square','asterisk','cross','inverted_triangle','variable'] # + columns
+    marker = Select(title='Marker', value='circle', options=marker_options, width=50)
     marker.on_change('value',update)
 
     periodic_checkbox=CheckboxGroup(labels=["Periodic Palette"], active=[])
