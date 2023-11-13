@@ -1,3 +1,8 @@
+The Interactive Sketchmap Visualizer is no longer developed. We invite you to try its successor,
+`chemiscope`. You can see it deployed as a web ap at [chemiscope.org](http://chemiscope.org) or
+try it as a jupyter widget with `pip install chemiscope`. 
+The source code is available in a [dedicated github repo](https://github.com/lab-cosmo/chemiscope/).
+
 # Citation 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3541831.svg)](https://doi.org/10.5281/zenodo.3541831)
 
